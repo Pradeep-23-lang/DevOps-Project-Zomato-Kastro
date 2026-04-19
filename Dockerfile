@@ -10,6 +10,9 @@ COPY package*.json ./
 # Install dependencies
 RUN npm install
 
+RUN mkdir -p /tmp/.npm && chmod -R 777 /tmp/.npm
+ENV NPM_CONFIG_CACHE=/tmp/.npm
+
 # Copy the rest of the application code
 COPY . .
 
